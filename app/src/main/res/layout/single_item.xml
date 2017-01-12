@@ -11,7 +11,9 @@
         android:id="@+id/itemStore"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="this is a discount"
@@ -19,7 +21,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/discountDescription"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="123 Main Street, Portland, OR 97201"
@@ -27,7 +31,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/discountAddress"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="(805) 555-5555"
@@ -35,7 +41,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/discountPhoneNumber"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="Miles Away"
@@ -43,5 +51,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/distanceAway"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 </LinearLayout>

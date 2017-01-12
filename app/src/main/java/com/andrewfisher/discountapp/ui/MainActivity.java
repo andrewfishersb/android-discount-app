@@ -3,7 +3,6 @@ package com.andrewfisher.discountapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -71,45 +70,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
+    //Access a local JSON file filled with discounts and converts it to a string
     public String getJSONFile(){
 
         String jsonFileString;
         try{
-
             InputStream asset = getAssets().open("discounts.json");
             int size = asset.available();
             byte[] buffer = new byte[size];
             asset.read(buffer);
             asset.close();
             jsonFileString = new String(buffer, "UTF-8");
-
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
-        Log.d("test",jsonFileString);
         return jsonFileString;
     }
 
-
+    //Splits apart the json file into an array
     public ArrayList<DiscountItem> allDiscounts(){
         String jsonString = getJSONFile();
         ArrayList<DiscountItem> allDiscountedItems = new ArrayList<>();
 
         try{
-//            JSONObject discountJSON = new JSONObject(jsonString);
-
             //retrieves the json array
             JSONArray discountJSON = new JSONArray(jsonString);
 
             //loops through each discount
             for(int i = 0; i< discountJSON.length();i++){
-                //maybe not json objects?
+                //Creates the current JSON object from the file
                 JSONObject itemJSON = discountJSON.getJSONObject(i);
 
                 String id = itemJSON.getString("id");

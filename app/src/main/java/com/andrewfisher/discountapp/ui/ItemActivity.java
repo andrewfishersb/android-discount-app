@@ -30,6 +30,8 @@ public class ItemActivity extends AppCompatActivity {
         String headline = intent.getStringExtra("category");
         mCategoryHeader.setText(headline);
 
+        //set the arraylist of discounts passed from the intent on MainActivity
+        discountList = (ArrayList) intent.getSerializableExtra("discount_list");
 
         //creates the recycler adapter
         DiscountItemAdapter adapter = new DiscountItemAdapter(this,discountList);
