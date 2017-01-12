@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.andrewfisher.discountapp.R;
 import com.andrewfisher.discountapp.model.DiscountItem;
@@ -60,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         mCategoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-                Toast.makeText(MainActivity.this, listCategories.get(position), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this,ItemActivity.class);
-
-                //sends the category type
+                //sends the category type and a serialized discount list
                 intent.putExtra("category",listCategories.get(position));
-                intent.putParcelableArrayListExtra("discount_list",discountList);
+                intent.putExtra("discount_list", discountList);
+
+                startActivity(intent);
             }
         });
 

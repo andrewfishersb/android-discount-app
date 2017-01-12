@@ -1,22 +1,23 @@
 package com.andrewfisher.discountapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by andrewfisher on 1/11/17.
  */
-
-public class DiscountItem {
-    private String id;
-    private String store;
-    private String address;
-    private String city;
-    private String state;
-    private String zipcode;
-    private String phone;
-    private String discount;
-    private int categoryId;
-    private double latitude;
-    private double longitude;
-    private String miles;
+public class DiscountItem implements Serializable{
+     String id;
+     String store;
+     String address;
+     String city;
+     String state;
+     String zipcode;
+     String phone;
+     String discount;
+     int categoryId;
+     double latitude;
+     double longitude;
+     String miles;
 
     public DiscountItem(String id, String store, String address, String city, String state, String zip, String phone,
                         String discount, int categoryId, double latitude, double longitude, String miles) {
