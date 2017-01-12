@@ -1,0 +1,44 @@
+[
+  {
+    "id": "33936",
+    "store_name": "Costco",
+    "address": "7850 SW Dartmouth",
+    "city": "Tigard",
+    "state": "OR",
+    "zip": "97223-8401",
+    "phone_number": "(503) 639-0811",
+    "discount": "Join Costco as a new member and receive over $50 in savings! Visit SheerID to verify military status and receive this deal (https://costco.sheerid.com/).",
+    "category_id": 4,
+    "latitude": 45.4352,
+    "longitude": -122.7575,
+    "miles": "7.23"
+  },
+  {
+    "id": "145464",
+    "store_name": "The Walking Company",
+    "address": "340 SW Morrison, Suite 1400",
+    "city": "Portland",
+    "state": "OR",
+    "zip": "97204",
+    "phone_number": "(503) 223-9535",
+    "discount": "In Support of our Men and Women in the Armed Forces, The Walking Company offers a discount of 15% off a purchase of full price merchandise. Customer must present an official United States Uniformed Services ID Card.  It does not apply towards UGGs or the purchase of a gift card.  See store for complete details, offers subject to change without notice.",
+    "category_id": 1,
+    "latitude": 45.518254,
+    "longitude": -122.676114,
+    "miles": "0.33"
+  },
+  {
+    "id": "4691",
+    "store_name": "Pac Sun",
+    "address": "9585 SW WASHINGTON SQUARE RD",
+    "city": "TIGARD",
+    "state": "OR",
+    "zip": "97223",
+    "phone_number": "(503) 670-7906",
+    "discount": "A discount of 5% to 20%. Varies by store. Contact company for details.",
+    "category_id": 1,
+    "latitude": 45.45019913,
+    "longitude": -122.7829971,
+    "miles": "7.21"
+  }
+]
