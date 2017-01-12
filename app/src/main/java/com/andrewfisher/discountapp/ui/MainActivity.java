@@ -1,11 +1,15 @@
 package com.andrewfisher.discountapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andrewfisher.discountapp.R;
 import com.andrewfisher.discountapp.model.DiscountItem;
@@ -17,13 +21,15 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+//COULD INSTEAD OF A SCROLL BOX TO SORT???
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.frontPageHeader) TextView mFrontPageHeader;
-    @Bind(R.id.itemCategories) ListView mCategories;
+    @Bind(R.id.itemCategories) ListView mCategoriesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +38,36 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        ArrayList<DiscountItem> discountList= allDiscounts();
-        ArrayAdapter
+        final ArrayList<DiscountItem> discountList= allDiscounts();
 
 
+        //display simple list
+        final ArrayList<String> listCategories = new ArrayList<>();
+        listCategories.add("View All Items");
+        for(DiscountItem item : discountList){
+            //MAYBE TRY WITH STRING BUFFER OR BUIDER
+            String categoryIdString = Integer.toString(item.getCategoryId());
+            if(!listCategories.contains(categoryIdString)){
+                listCategories.add(categoryIdString);
+            }
+        }
+        Collections.sort(listCategories);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listCategories);
+        mCategoriesListView.setAdapter(adapter);
+        //end of list code
+
+        //when user clicks on a single list item
+        mCategoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id){
+                Toast.makeText(MainActivity.this, listCategories.get(position), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,ItemActivity.class);
+
+                //sends the category type
+                intent.putExtra("category",listCategories.get(position));
+                intent.putParcelableArrayListExtra("discount_list",discountList);
+            }
+        });
 
     }
 
