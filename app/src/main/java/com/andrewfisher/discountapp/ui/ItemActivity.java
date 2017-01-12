@@ -3,15 +3,23 @@ package com.andrewfisher.discountapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.andrewfisher.discountapp.R;
+import com.andrewfisher.discountapp.adapter.DiscountItemAdapter;
+import com.andrewfisher.discountapp.model.DiscountItem;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ItemActivity extends AppCompatActivity {
     @Bind(R.id.categoryHeader) TextView mCategoryHeader;
+    @Bind(R.id.currentCategoryRecyclerView) RecyclerView mCurrentCategoryRecyclerView;
+    ArrayList<DiscountItem> discountList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,14 @@ public class ItemActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String headline = intent.getStringExtra("category");
         mCategoryHeader.setText(headline);
+
+
+        //creates the recycler adapter
+        DiscountItemAdapter adapter = new DiscountItemAdapter(this,discountList);
+        mCurrentCategoryRecyclerView.setAdapter(adapter);
+        mCurrentCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
     }
 }
