@@ -31,7 +31,7 @@ public class ItemActivity extends AppCompatActivity {
         mCategoryHeader.setText(headline);
 
 
-        //converts headline into a category int - all is converted into -1
+        //converts headline into the clicked into category idc - view all is converted into -1, if need be I could check for View all first and then if not found I parse the string else i post everything
         int currentCategoryId;
         try{
             currentCategoryId = Integer.parseInt(headline);
@@ -39,25 +39,26 @@ public class ItemActivity extends AppCompatActivity {
             currentCategoryId = -1;
         }
 
-
         //set the arraylist of discounts passed from the intent on MainActivity
         discountList = (ArrayList) intent.getSerializableExtra("discount_list");
 
-        //filters out incorrect entries LATER CONTROL FOR VIEW ALL
-        for(int i = 0; i<discountList.size();i++){
-            //fairly pointless variables to debug
-            int itemCategoryId = discountList.get(i).getCategoryId();
+        //checks if all is shown
+        if(currentCategoryId ==-1){
 
-            if(itemCategoryId != currentCategoryId){
-                discountList.remove(i);
-                i--;
+        }else{
+            // loops to remove an item without the current category id
+            for(int i = 0; i<discountList.size();i++){
+
+                if(discountList.get(i).getCategoryId() != currentCategoryId){
+                    discountList.remove(i);
+                    i--;
+                }
+
             }
-
-            //end of variables
-//            if(item.getCategoryId() != currentCategoryId){
-//                discountList.remove(discountList.indexOf(item));
-//            }
         }
+
+
+
 
 
 
