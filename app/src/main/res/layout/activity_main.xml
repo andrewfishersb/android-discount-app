@@ -8,25 +8,44 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.andrewfisher.discountapp.ui.MainActivity">
 
-    <TextView
-        android:text="SCOUT Military Discounts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/frontPageHeader"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="normal|bold"/>
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.andrewfisher.discountapp.ui.MainActivity"
+    android:background="@color/colorPrimary">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/frontPageHeader"
+        android:layout_below="@+id/viewCategory"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/itemCategories"/>
+        android:id="@+id/itemCategories"
+        android:alpha=".95"
+        android:background="@android:color/holo_red_light"
+        />
+
+    <TextView
+        android:text="Welcome to SCOUT Military Discounts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frontPageHeader"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"/>
+
+    <TextView
+        android:text="View Categories Below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/frontPageHeader"
+        android:id="@+id/viewCategory"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
 </RelativeLayout>

@@ -2,18 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:background="@color/colorAccent"
+              android:layout_margin="5dp">
 
     <TextView
         android:text="Store"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/itemStore"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
         android:text="this is a discount"
@@ -23,7 +26,10 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:padding="3dp"/>
 
     <TextView
         android:text="123 Main Street, Portland, OR 97201"
@@ -33,17 +39,27 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_map_black_24dp"
+        android:drawablePadding="15dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:padding="3dp"/>
 
     <TextView
         android:text="(805) 555-5555"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/discountPhoneNumber"
+        android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+        android:drawablePadding="15dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:padding="3dp"/>
 
     <TextView
         android:text="Miles Away"
@@ -53,5 +69,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:padding="3dp"/>
 </LinearLayout>

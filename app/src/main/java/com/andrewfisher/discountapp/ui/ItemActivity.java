@@ -45,7 +45,7 @@ public class ItemActivity extends AppCompatActivity {
 
         //checks if View all was clicked is shown
         if(currentCategoryId ==-1){
-            //sorts list by category id
+            //sorts list by category id, lowest to highest
             Collections.sort(discountList);
         }else{
             // loops to remove an item without the current category id
@@ -55,22 +55,13 @@ public class ItemActivity extends AppCompatActivity {
                     discountList.remove(i);
                     i--;
                 }
-
             }
         }
-
-
-
-
-
-
 
         //creates the filtered recycler adapter
         DiscountItemAdapter adapter = new DiscountItemAdapter(this,discountList);
         mCurrentCategoryRecyclerView.setAdapter(adapter);
         mCurrentCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
 
     }
 }
