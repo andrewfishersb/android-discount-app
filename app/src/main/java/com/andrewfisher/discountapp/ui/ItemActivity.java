@@ -44,16 +44,19 @@ public class ItemActivity extends AppCompatActivity {
         discountList = (ArrayList) intent.getSerializableExtra("discount_list");
 
         //filters out incorrect entries LATER CONTROL FOR VIEW ALL
-        for(DiscountItem item : discountList){
+        for(int i = 0; i<discountList.size();i++){
             //fairly pointless variables to debug
+            int itemCategoryId = discountList.get(i).getCategoryId();
 
-
-
+            if(itemCategoryId != currentCategoryId){
+                discountList.remove(i);
+                i--;
+            }
 
             //end of variables
-            if(item.getCategoryId() != currentCategoryId){
-                discountList.remove(discountList.indexOf(item));
-            }
+//            if(item.getCategoryId() != currentCategoryId){
+//                discountList.remove(discountList.indexOf(item));
+//            }
         }
 
 
