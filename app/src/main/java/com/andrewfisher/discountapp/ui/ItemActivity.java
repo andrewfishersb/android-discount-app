@@ -12,6 +12,7 @@ import com.andrewfisher.discountapp.adapter.DiscountItemAdapter;
 import com.andrewfisher.discountapp.model.DiscountItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,9 +43,10 @@ public class ItemActivity extends AppCompatActivity {
         //set the arraylist of discounts passed from the intent on MainActivity
         discountList = (ArrayList) intent.getSerializableExtra("discount_list");
 
-        //checks if all is shown
+        //checks if View all was clicked is shown
         if(currentCategoryId ==-1){
-
+            //sorts list by category id
+            Collections.sort(discountList);
         }else{
             // loops to remove an item without the current category id
             for(int i = 0; i<discountList.size();i++){

@@ -2,9 +2,6 @@ package com.andrewfisher.discountapp.model;
 
 import java.io.Serializable;
 
-/**
- * Created by andrewfisher on 1/11/17.
- */
 public class DiscountItem implements Serializable, Comparable<DiscountItem>{
     private String id;
     private String store;
