@@ -25,6 +25,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 //COULD INSTEAD OF A SCROLL BOX TO SORT???
+
+
+//TASKS LEFT - filter, go back to previous page from manifest
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.frontPageHeader) TextView mFrontPageHeader;
     @Bind(R.id.itemCategories) ListView mCategoriesListView;

@@ -30,10 +30,36 @@ public class ItemActivity extends AppCompatActivity {
         String headline = intent.getStringExtra("category");
         mCategoryHeader.setText(headline);
 
+
+        //converts headline into a category int - all is converted into -1
+        int currentCategoryId;
+        try{
+            currentCategoryId = Integer.parseInt(headline);
+        }catch (NumberFormatException e){
+            currentCategoryId = -1;
+        }
+
+
         //set the arraylist of discounts passed from the intent on MainActivity
         discountList = (ArrayList) intent.getSerializableExtra("discount_list");
 
-        //creates the recycler adapter
+        //filters out incorrect entries LATER CONTROL FOR VIEW ALL
+        for(DiscountItem item : discountList){
+            //fairly pointless variables to debug
+
+
+
+
+            //end of variables
+            if(item.getCategoryId() != currentCategoryId){
+                discountList.remove(discountList.indexOf(item));
+            }
+        }
+
+
+
+
+        //creates the filtered recycler adapter
         DiscountItemAdapter adapter = new DiscountItemAdapter(this,discountList);
         mCurrentCategoryRecyclerView.setAdapter(adapter);
         mCurrentCategoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
