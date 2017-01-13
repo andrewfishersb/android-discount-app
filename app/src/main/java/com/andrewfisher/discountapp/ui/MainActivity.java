@@ -24,10 +24,6 @@ import java.util.Collections;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-//COULD INSTEAD OF A SCROLL BOX TO SORT???
-
-
-//TASKS LEFT - filter, go back to previous page from manifest
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.frontPageHeader) TextView mFrontPageHeader;
     @Bind(R.id.itemCategories) ListView mCategoriesListView;
@@ -36,28 +32,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
-
         final ArrayList<DiscountItem> discountList= allDiscounts();
 
-
-        //display simple list
         final ArrayList<String> listCategories = new ArrayList<>();
         listCategories.add("View All Items");
+
         for(DiscountItem item : discountList){
-            //MAYBE TRY WITH STRING BUFFER OR BUIDER
             String categoryIdString = Integer.toString(item.getCategoryId());
             if(!listCategories.contains(categoryIdString)){
                 listCategories.add(categoryIdString);
             }
         }
+
+        //Sorts list "alphabetically" starting with numbers, a built in Java function
         Collections.sort(listCategories);
+
+        //builds a simple list of categories
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listCategories);
         mCategoriesListView.setAdapter(adapter);
-        //end of list code
 
-        //when user clicks on a single list item
+        //send object and category type when user clicks on a single list item
         mCategoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id){
@@ -72,17 +67,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //Access a local JSON file filled with discounts and converts it to a string
     public String getJSONFile(){
 
         String jsonFileString;
         try{
+            //opens up access to the file
             InputStream asset = getAssets().open("discounts.json");
             int size = asset.available();
             byte[] buffer = new byte[size];
+
+            //reads int the file from the asset
             asset.read(buffer);
             asset.close();
+
+            //retrieves the buffer and sets it to a string
             jsonFileString = new String(buffer, "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,12 +117,12 @@ public class MainActivity extends AppCompatActivity {
                 double longitude = itemJSON.getDouble("longitude");
                 String miles = itemJSON.getString("miles");
 
+                //creates a new discount object, then adds it to the list of discounts
                 DiscountItem discountItem = new DiscountItem(id,businessName,address,city,state,zip,phoneNumber,discountInformation,categoryId,latitude,longitude,miles);
 
                 allDiscountedItems.add(discountItem);
 
             }
-
 
         } catch (JSONException e) {
             e.printStackTrace();

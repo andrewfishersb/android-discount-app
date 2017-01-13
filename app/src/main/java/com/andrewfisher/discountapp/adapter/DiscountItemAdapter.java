@@ -16,18 +16,10 @@ import java.util.List;
 
 import static com.andrewfisher.discountapp.R.id.discountAddress;
 
-/**
- * Created by andrewfisher on 1/12/17.
- */
-
 public class DiscountItemAdapter extends RecyclerView.Adapter<DiscountItemAdapter.ViewHolder>{
     private List<DiscountItem> mDiscountItems;
     private Context mContext;
 
-
-    //address and phone, MAYBE LAT LONG OR ALL UP HERE
-    TextView mAddress;
-    TextView mPhoneNumber;
     public DiscountItemAdapter(Context context, List<DiscountItem> items){
         mContext = context;
         mDiscountItems = items;
@@ -58,16 +50,14 @@ public class DiscountItemAdapter extends RecyclerView.Adapter<DiscountItemAdapte
         TextView discountBlurb = holder.mDiscountDescription;
         discountBlurb.setText(discountedItem.getDiscount());
 
-        mAddress = holder.mDiscountAddress;
+        TextView mAddress = holder.mDiscountAddress;
         mAddress.setText(discountedItem.getAddress()+", " + discountedItem.getCity() + ", "+discountedItem.getState() + " "+discountedItem.getZipcode());
 
-        mPhoneNumber = holder.mDiscountPhoneNumber;
+        TextView mPhoneNumber = holder.mDiscountPhoneNumber;
         mPhoneNumber.setText(discountedItem.getPhone());
 
         TextView milesAway = holder.mMilesAway;
         milesAway.setText(discountedItem.getMiles()+" miles way");
-
-
 
         //set implicit intent for the stores phone number
         mPhoneNumber.setOnClickListener(new View.OnClickListener(){
@@ -90,18 +80,6 @@ public class DiscountItemAdapter extends RecyclerView.Adapter<DiscountItemAdapte
                 mContext.startActivity(addressIntent);
             }
         });
-
-//        mPhoneNumber.setOnClickListener(this);
-        //MAYBE GET LONGITUDE/LATITUDE TO MAP YOU THERE
-
-
-
-
-
-
-
-
-
     }
 
     @Override

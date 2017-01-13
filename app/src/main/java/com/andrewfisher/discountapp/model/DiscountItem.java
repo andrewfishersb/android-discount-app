@@ -2,6 +2,7 @@ package com.andrewfisher.discountapp.model;
 
 import java.io.Serializable;
 
+//implements serializable so the object can easily be passed through intents, and Comparable so it is easy to compare with other objects and easy to sort by category id
 public class DiscountItem implements Serializable, Comparable<DiscountItem>{
     private String id;
     private String store;
@@ -33,7 +34,7 @@ public class DiscountItem implements Serializable, Comparable<DiscountItem>{
         this.miles = miles;
     }
 
-    //used to sort the list of objects by category id
+    //Rewritten in order to sort the list of objects by category id, when using Collections.sort
     @Override
     public int compareTo(DiscountItem otherItem){
         if(categoryId >otherItem.categoryId){
